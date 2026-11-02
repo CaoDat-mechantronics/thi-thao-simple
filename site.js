@@ -158,9 +158,9 @@
       const delta=e.target.closest('[data-cart-delta]');if(delta){updateQty(delta.dataset.id,Number(delta.dataset.cartDelta));return;}
       const remove=e.target.closest('[data-cart-remove]');if(remove){cart.delete(remove.dataset.cartRemove);save();updateCount();renderCart();return;}
       if(e.target.closest('[data-checkout-demo]')){notify('Đây là website demo, chưa kết nối thanh toán hoặc tạo đơn hàng.');return;}
-      if(e.target.closest('[data-account]')){notify('Tài khoản sẽ được bổ sung khi có backend.');return;}
+      if(e.target.closest('[data-account]')){const menu=e.target.closest('.nav-main.mobile-open');if(menu){menu.classList.remove('mobile-open');document.body.classList.remove('mobile-nav-open');const button=menu.closest('.site-header')?.querySelector('[data-nav-toggle]');if(button){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Mở menu');}}notify('Chức năng đăng nhập sẽ được bổ sung khi có backend.');return;}
       const contact=e.target.closest('[data-contact]');if(contact){notify('Số điện thoại hiện chưa được cấu hình.');return;}
-      const toggle=e.target.closest('[data-nav-toggle]');if(toggle){const menu=toggle.closest('.site-header').querySelector('.nav-main');const open=menu.classList.toggle('mobile-open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Đóng menu':'Mở menu');return;}
+      const toggle=e.target.closest('[data-nav-toggle]');if(toggle){const menu=toggle.closest('.site-header').querySelector('.nav-main');const open=menu.classList.toggle('mobile-open');document.body.classList.toggle('mobile-nav-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Đóng menu':'Mở menu');return;}
       const change=e.target.closest('[data-qty-change]');if(change){const input=$('#detail-quantity');if(input){input.value=String(Math.max(1,Math.min(100,(Number(input.value)||1)+Number(change.dataset.qtyChange))));}return;}
       const addDetail=e.target.closest('[data-detail-add]');if(addDetail){addToCart(addDetail.dataset.detailAdd,Number($('#detail-quantity')?.value)||1);return;}
     });
@@ -170,7 +170,7 @@
       window.location.href='tat-ca-san-pham.html'+(value?'?q='+encodeURIComponent(value):'');
     });
     document.addEventListener('keydown',e=>{
-      if(e.key==='Escape'){cartClose();$$('.nav-main.mobile-open').forEach(el=>el.classList.remove('mobile-open'));}
+      if(e.key==='Escape'){cartClose();document.body.classList.remove('mobile-nav-open');$$('.nav-main.mobile-open').forEach(el=>{el.classList.remove('mobile-open');const button=el.closest('.site-header')?.querySelector('[data-nav-toggle]');if(button){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Mở menu');}});}
       if(e.key==='Tab'&&!$('#cart-drawer')?.hidden){
         const focusable=Array.from($('#cart-drawer').querySelectorAll('button,a[href],input')).filter(el=>!el.disabled&&el.getClientRects().length);
         if(focusable.length){const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}

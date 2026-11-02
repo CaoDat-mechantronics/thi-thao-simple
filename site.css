@@ -74,3 +74,92 @@ h1,h2,h3,h4,.section-heading h2,.product-name,.tile-title,.shelf-heading h3,.cat
 .product-thumb img.real-product-photo{width:calc(100% - 24px);height:calc(100% - 20px);max-height:none;padding:0;object-fit:cover;border-radius:14px;background:#fff;box-shadow:0 5px 14px #76502b19}
 .detail-visual img.real-product-photo{height:auto;max-height:470px;max-width:100%;width:auto;object-fit:contain;border-radius:18px;background:#fff;box-shadow:0 8px 20px #76502b1a;filter:none}
 .detail-note a{color:#b84c1c;text-decoration:underline}
+
+
+/* ===== BẢN SỬA HEADER + LIÊN LẠC MOBILE 2026-11-02 ===== */
+/* Không thay đổi banner nguyên bản và menu desktop. */
+.mobile-account-link,.mobile-contact-stack{display:none}
+@media(max-width:1200px){
+  .site-header .header-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 17px;max-width:100%}
+  .site-header .brand{flex:1 1 0;min-width:0;max-width:none;justify-content:flex-start}
+  .site-header .brand img{display:block;width:min(100%,255px);max-width:255px;height:auto;object-fit:contain;object-position:left center}
+  .site-header .header-actions{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-end;gap:12px;margin-left:auto}
+  .site-header .header-actions>.account-trigger{display:none!important}
+  .site-header .header-actions>.cart-trigger,
+  .site-header .header-actions>.nav-toggle{display:grid!important;place-items:center;flex:0 0 45px;min-width:45px;width:45px;height:45px;padding:9px;margin:0;background:#fff5e9;border:1px solid #fbe8d3;border-radius:14px;box-shadow:0 1px 4px #b1774720}
+  .site-header .header-actions .nav-icon{width:25px;height:25px}
+  .site-header .nav-main{position:absolute;top:calc(100% - 1px);left:14px;right:14px;max-height:calc(100dvh - 94px);overflow-y:auto;z-index:40;box-shadow:0 16px 45px #53320e40;padding:12px;gap:2px}
+  .site-header .nav-main.mobile-open{display:flex;flex-direction:column;align-items:stretch}
+  .site-header .nav-main .nav-link{display:flex;width:100%;text-align:left;justify-content:flex-start;font-size:15px;padding:11px 14px}
+  .site-header .nav-has-menu{width:100%}
+  .site-header .mega-menu{position:static;width:100%;max-width:100%;max-height:220px;overflow-y:auto;box-shadow:none;border:0;padding:8px;visibility:visible;opacity:1;transform:none;pointer-events:auto;display:grid}
+  .site-header .mobile-account-link{display:flex;gap:10px;align-items:center;justify-content:flex-start;margin-top:10px;padding:14px!important;width:100%;background:#fff0dd;color:#874214;border:1px solid #f5d4b1;cursor:pointer;border-radius:14px;font-weight:900;white-space:normal}
+  .mobile-contact-stack{position:fixed;right:12px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:32;width:50px;display:flex;flex-direction:column;align-items:center;gap:8px;isolation:isolate}
+  .mobile-contact-button{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;padding:0;border:2px solid #fff;border-radius:15px;box-shadow:0 5px 15px #3d22134d;cursor:pointer;transition:transform .17s ease,box-shadow .17s ease}
+  .mobile-contact-button:hover,.mobile-contact-button:focus-visible{transform:translateX(-4px);box-shadow:0 8px 20px #3d221155}
+  .mobile-contact-button svg{display:block}
+  .mobile-facebook{background:linear-gradient(135deg,#2499ff,#0657cc)}
+  .mobile-zalo{background:linear-gradient(135deg,#4bc0ff,#0378e2)}
+  .mobile-tiktok{background:#111016}
+  .mobile-phone{background:linear-gradient(135deg,#76df35,#25b329)}
+  .contact-sleeping-cat{position:absolute;bottom:calc(100% - 17px);right:-17px;width:111px;height:auto;max-width:none;pointer-events:none;z-index:2;filter:drop-shadow(0 3px 2px #51340f35)}
+}
+@media(max-width:740px){
+  .site-header .header-inner{height:74px;padding:0 14px;gap:12px}
+  .site-header .brand img{max-width:224px}
+  .site-header .header-actions{gap:10px}
+  .site-header .nav-main{top:calc(100% - 1px);left:10px;right:10px;max-height:calc(100dvh - 86px)}
+  .mobile-contact-stack{right:9px;bottom:calc(81px + env(safe-area-inset-bottom));gap:7px}
+  .mobile-contact-button{height:46px;width:46px;flex-basis:46px;border-radius:14px}
+  .contact-sleeping-cat{width:109px;right:-16px}
+}
+@media(max-width:400px){
+  .site-header .header-inner{height:70px;padding:0 12px;gap:10px}
+  .site-header .brand img{max-width:212px}
+  .site-header .header-actions{gap:9px}
+  .site-header .header-actions>.cart-trigger,
+  .site-header .header-actions>.nav-toggle{flex-basis:43px;min-width:43px;width:43px;height:43px;padding:8px}
+  .mobile-contact-stack{right:8px;bottom:calc(78px + env(safe-area-inset-bottom))}
+}
+@media(max-width:350px){
+  .site-header .header-inner{gap:7px;padding:0 9px}
+  .site-header .header-actions{gap:7px}
+  .site-header .header-actions>.cart-trigger,
+  .site-header .header-actions>.nav-toggle{flex-basis:39px;min-width:39px;width:39px;height:39px;padding:6px}
+  .mobile-contact-button{width:42px;height:42px;flex-basis:42px}
+  .contact-sleeping-cat{width:97px}
+}
+
+@media(max-width:1200px){body.mobile-nav-open .mobile-contact-stack{display:none!important}}
+@media(max-width:350px){.site-header .brand img{max-width:185px}}
+
+
+/* ===== Mobile: mèo ngủ gọn, cân giữa phía trên nút Facebook ===== */
+/* Chỉ điều chỉnh kích thước / vị trí, không can thiệp ảnh gốc và giao diện desktop. */
+@media (max-width:1200px) {
+  .mobile-contact-stack .contact-sleeping-cat {
+    width:94px;
+    right:calc((50px - 94px)/2);
+    bottom:calc(100% - 10px);
+    height:auto;
+    max-width:none;
+  }
+}
+@media (max-width:740px) {
+  .mobile-contact-stack .contact-sleeping-cat {
+    width:88px;
+    right:calc((50px - 88px)/2);
+  }
+}
+@media (max-width:400px) {
+  .mobile-contact-stack .contact-sleeping-cat {
+    width:82px;
+    right:calc((50px - 82px)/2);
+  }
+}
+@media (max-width:350px) {
+  .mobile-contact-stack .contact-sleeping-cat {
+    width:76px;
+    right:calc((50px - 76px)/2);
+  }
+}

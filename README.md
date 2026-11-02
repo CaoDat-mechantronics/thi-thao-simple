@@ -50,3 +50,16 @@ Website ban đầu sử dụng ảnh thật qua đường dẫn trực tuyến c
 2. Trên Windows, mở `tai_anh_that.bat`; hoặc chạy `python download_real_photos.py`.
 3. Chương trình lưu ảnh tại `assets/real-photos/` và cập nhật `catalog.js` để dùng ảnh offline cho những file tải thành công.
 Nguồn và giấy phép vẫn được ghi trong `nguon-anh.html`.
+
+
+## Nâng cấp giao diện điện thoại (02/11/2026)
+
+- Trên mobile: hàng đầu chỉ còn logo Thảo Thú Cưng, nút giỏ hàng và nút ba gạch. Nút đăng nhập nằm trong menu ba gạch.
+- Cụm liên hệ Facebook, Zalo, TikTok và gọi điện luôn hiện dạng nổi trên mọi trang trên thiết bị nhỏ, có chú mèo mướp đang ngủ bằng hình vẽ SVG riêng (`assets/cat-sleeping.svg`).
+- Liên kết Facebook/TikTok/Zalo giữ đúng như bản cập nhật trước; điện thoại chưa có số để gọi nên hiện thông báo demo.
+- Giao diện desktop và ảnh banner gốc không thay đổi. Điều chỉnh được khai báo ở cuối `site.css`, dùng chung cho mọi trang.
+
+
+## Cập nhật mèo ngủ trên giao diện điện thoại
+
+Đã thay hình mèo mobile bằng ảnh PNG nền trong suốt `assets/meo-ngu-nen-trong-suot.png` (chỉ có mèo và ký tự Z ngủ), đặt nổi trên nút Facebook. 36 trang HTML đều dùng chung ảnh này. Chỉnh kích thước/vị trí qua `.contact-sleeping-cat` trong `site.css`. Giao diện desktop giữ nguyên.
